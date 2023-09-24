@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- for graph -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- fonts, icons and styles -->
+    <link rel="stylesheet" href="nutritionStyle.css">
+
+    <script src="https://kit.fontawesome.com/966c797ca6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200&family=Vollkorn&display=swap');
+    </style>
+    <title>Nutrition</title>
+    <script src="https://kit.fontawesome.com/966c797ca6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200&family=Vollkorn&display=swap');
+    </style>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            display: flex;
+            flex-direction: row;
+            font-family: 'Vollkorn', serif;
+        }
+
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            background-color: transparent;
+            width: 100vw;
+            /*z-index: 99;*/
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo img {
+            text-align: center;
+            color: black;
+            width: 50px;
+            height: 50px;
+            /*height: calc(100vh/11);*/
+        }
+
+        .logo p {
+            /*padding-top: calc(100vh/44);*/
+            font-size: large;
+            font-family: Vollkorn;
+        }
+
+        .logo {
+            display: flex;
+            width: 85vw;
+            align-items: center;
+        }
+
+        .right-icons {
+            display: flex;
+            align-items: center;
+            width: 15vw;
+            justify-content: space-evenly;
+        }
+
+        .notification-icon,
+        .profile-icon {
+            font-size: 1.2rem;
+            color: black;
+            margin: 0 10px;
+        }
+
+        .notification-icon :hover,
+        .profile-icon:hover {
+            cursor: pointer;
+        }
+
+        footer {
+            font-family: 'Inter', sans-serif;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 75px;
+            background-color: #FFF;
+            color: rgb(0, 0, 0);
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding-top: 20px;
+            padding-top: 10px;
+        }
+
+        footer p {
+            font-size: xx-small;
+            margin: 0;
+        }
+
+        /* css link styling for footer and header, jic other pages also use a tag*/
+        footer a:link {
+            text-decoration: none;
+            color: black;
+        }
+
+        footer a:visited {
+            text-decoration: none;
+            color: black;
+        }
+
+        footer a:hover {
+            text-decoration: none;
+            color: grey !important;
+        }
+
+        footer a:active {
+            text-decoration: none;
+            color: black;
+        }
+
+        header a:link {
+            text-decoration: none;
+            color: black;
+        }
+
+        header a:visited {
+            text-decoration: none;
+            color: black;
+        }
+
+        header a:hover {
+            text-decoration: none;
+            color: grey !important;
+        }
+
+        header a:active {
+            text-decoration: none;
+            color: black;
+        }
+
+        .fa-comment-dots {
+            width: 24px;
+            height: 17px;
+        }
+
+        /* hardcode css id in html for current page opened */
+        #opened-nav {
+            color: #f5b512;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="navbar" style="background-color:white;">
+            <div class="logo">
+                <img src="../nabar/navbar_media/fitconnect_logo.png">
+                <p>FitConnect</p>
+            </div>
+            <div class="right-icons">
+                <a href="../notification/notifications.html">
+                    <div class="notification-icon" onclick="myNoti()"><i class="fas fa-bell"></i></div>
+                </a>
+                <div class="profile-icon" onclick="myPfp()"><a href="../profile/profile.html"><i
+                            class="fas fa-user"></i></a></div>
+            </div>
+
+        </div>
+
+    </header>
+    <main>
+        <div class="current-day-stuff">
+            <div class="selection">
+                <button class="selectButtons" id="showByDay" onclick="showCalDay(this)">Day</button>
+                <button class="selectButtons" id="showByWeek" onclick="showCalWeek(this)">Week</button>
+                <button class="selectButtons" id="showByMonth" onclick="showCalMonth(this)">Month</button>
+            </div>
+
+            <div id="cal-by-day" class="cal-Area-day">
+                <h2>Calories</h2>
+                <div class="cal-num">
+                    <div class="cal-num-box">
+                        <p>Intake</p>
+                        <span id="intake-cal">1400</span>
+                    </div>
+                    <div class="cal-num-box">
+                        <p>Burned</p>
+                        <span id="burned-cal">700</span>
+                    </div>
+                    <div class="cal-num-box">
+                        <p>Remaining</p>
+                        <span id="rem-cal">900</span>
+                    </div>
+                </div>
+                <div class="notes">
+                    <p class="note">Remaining = Goal - Food</p>
+                    <p class="note" style="color:rgb(111, 111, 111);">Goal: 2300kcal</p>
+                </div>
+            </div>
+
+            <div class="cal-Area-week" id="cal-by-week">
+                <h2>Calories</h2>
+                <div id="calendarWeek">
+                    <!-- week graph code -->
+                    <div class="chart-container">
+                        <canvas id="line-chart"></canvas>
+                    </div>
+                </div>
+
+                <div class="legendForDisplay">
+                    <h5>Legend</h5>
+                    <div class="row legendEach">
+                        <div class="green legendBox"></div>
+                        <p>Calorie intake reached or under goal</p>
+                    </div>
+                    <div class="row legendEach">
+                        <div class="red legendBox"></div>
+                        <p>Calorie intake exceeded goal</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cal-Area-month" id="cal-by-month">
+                <h2>Calories</h2>
+                <div class="CalArea">
+                    <div class="wrapper">
+                        <header>
+                            <p class="current-date">September 2022</p>
+                            <div class="icons">
+                                <span id="prev" class="material-symbols-rounded"><i
+                                        class="fa-solid fa-caret-left"></i></span>
+                                <span id="next" class="material-symbols-rounded"><i
+                                        class="fa-solid fa-caret-right"></i></span>
+                            </div>
+                        </header>
+                        <div class="calendar">
+                            <ul class="weeks">
+                                <li>Sun</li>
+                                <li>Mon</li>
+                                <li>Tue</li>
+                                <li>Wed</li>
+                                <li>Thu</li>
+                                <li>Fri</li>
+                                <li>Sat</li>
+                            </ul>
+                            <ul class="days">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="legendForDisplay">
+                    <h5>Legend</h5>
+                    <div class="row legendEach">
+                        <div class="green legendBox"></div>
+                        <p>Calorie intake reached or under goal</p>
+                    </div>
+                    <div class="row legendEach">
+                        <div class="red legendBox"></div>
+                        <p>Calorie intake exceeded goal</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="arrange" id="chooseYourCharacter">
+            <div class="select-meal-area">Today's meals</div>
+            <div class="meal-selector">
+                <div id="breakfast-button" class="meal-button" data-meal="breakfast">
+                    <p>Breakfast</p>
+                    <span class="material-symbols-outlined">breakfast_dining</span>
+                </div>
+                <div id="lunch-button" class="meal-button" data-meal="lunch">
+                    <p>Lunch</p>
+                    <span class="material-symbols-outlined">lunch_dining</span>
+                </div>
+                <div id="dinner-button" class="meal-button" data-meal="dinner">
+                    <p>Dinner</p>
+                    <span class="material-symbols-outlined">dinner_dining</span>
+                </div>
+            </div>
+            <div class="meal-selector2">
+                <div id="snack-button" class="meal-button">
+                    <p>Snack</p>
+                    <span class="material-symbols-outlined">tapas</span>
+                </div>
+                <div id="water-button" class="meal-button">
+                    <p>Water</p>
+                    <span class="material-symbols-outlined">water_full</span>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="nullMealList">
+            <div class="nullText">
+                <p>You have not saved any meals. Save your meal below to see its nutrition values.</p>
+            </div>
+        </div>
+
+        <div id="nullWaterIntake">
+            <div class="nullText">
+                <p>You have not saved your water intake for today. Save your water intake below.</p>
+            </div>
+        </div>
+
+        <div class="arrange" id="editWaterIntakeArea">
+            <div id="editWaterIntake">
+                <h3>Water</h3>
+                <div class="water-intake-area">
+                    <label>Intake:</label>
+                    <input id="water-intake" type="text">
+                    <select id="measurement">
+                        <option selected>Litres</option>
+                        <option>Cups</option>
+                        <option>Oz</option>
+                    </select>
+                </div>
+                <div class="goal-water-area">
+                    <label>Recommended:</label>
+                    <span id="WaterIntakeGoal">2 litres</span>
+                </div>
+                <button id="saveWaterIntake" onclick="saveWaterIntake()">Save</button>
+            </div>
+        </div>
+        <div class="arrange" id="DisplayWaterIntakeArea">
+            <div id="DisplayWaterIntake">
+                <h3>Water</h3>
+                <div class="water-intake-area">
+                    <label>Intake</label>
+                    <span id="water-intake-display">test</span><span id="measurement-display">test</span>
+                </div>
+                <div class="goal-water-area">
+                    <label>Goal:</label>
+                    <span id="WaterIntakeGoal">2 litres</span>
+                </div>
+                <button id="saveWaterIntake" onclick="editWaterIntake()">Edit</button>
+            </div>
+        </div>
+
+
+        <div class="" id="nutritionFactsArea">
+            <div class="nutritionBox">
+                <div class="nutritionBoxes">
+                    <!-- API: should input meal content below -->
+                    <span id="nutritionForMeal">BreakfastMeal + side dish...</span>
+                </div>
+                <div class="nutritionBoxes" id="NutritionFactsText">
+                    <p>Nutrition Facts</p>
+                </div>
+                <div class="nutritionBoxes">
+                    <!-- API: should input meal nutritional info here -->
+                    <div class="nutritionRows">
+                        <label>Calories</label>
+                        <span>170</span>
+                    </div>
+                    <div class="nutritionRows">
+                        <label>Fat</label>
+                        <span>15g</span>
+                    </div>
+                    <div class="nutritionRows">
+                        <label>Cholesterol</label>
+                        <span>170</span>
+                    </div>
+                    <div class="nutritionRows">
+                        <label>Sodium</label>
+                        <span>170</span>
+                    </div>
+                    <div class="nutritionRows">
+                        <label>Carbohydrates</label>
+                        <span>170</span>
+                    </div>
+                    <div class="nutritionRows">
+                        <label>Protein</label>
+                        <span>170</span>
+                    </div>
+                    <div class="nutritionRows">
+                        <label>Calcium</label>
+                        <span>170</span>
+                    </div>
+                    <div class="nutritionRows">
+                        <label>Iron</label>
+                        <span>170</span>
+                    </div>
+                </div>
+                <div class="nutritionBoxes buttonArea">
+                    <button id="EditMealButton" role="button" onclick="editMeal()">Edit meal</button>
+
+                </div>
+            </div>
+        </div>
+        <div id="camera-area">
+            <div id="MealPictureArea">
+                <div id="camera-view">
+                    <video id="video-feed" autoplay></video>
+                    <canvas id="capture-canvas" style="display: none;"></canvas>
+                </div>
+                <div class="cameraButtons">
+                    <button id="start-camera">Start Camera</button>
+                    <div class="photo-button" id="capture-photo">
+                        <div class="circle"></div>
+                        <div class="ring"></div>
+                    </div>
+                    <button id="stop-camera" disabled>Stop Camera</button>
+                </div>
+                <img id="image-preview" src="">
+                <div class="extra-notes">
+                    <div>
+                        <h3>Notes</h3>
+                        <textarea rows="2" id="othersMeal"></textarea>
+                    </div>
+                </div>
+                <div class="manage-image">
+                    <input type="file" id="upload-photo" style="display: none;">
+                    <!-- API: onclick of 'save' button to detect food, display food content and food nutrition info-->
+                    <button id="save-image-meal" onclick="saveMeal()">Save</button>
+                </div>
+            </div>
+
+            <div id="rec-meals">
+                <div id="rec-meal-buttons">
+                    <h3>Recommended meals</h3>
+                    <button id="seeAllRecMeal">See All</button>
+                </div>
+                <div id="rows-of-meals">
+                    <div class="recMeal">
+                        <img src="./images/pexels-julio-melanda-1448722.jpg">
+                        <p>eggs</p>
+                        <p style="color:rgb(113, 113, 113); font-size:small;">allergies: ...</p>
+                    </div>
+                    <div class="recMeal">
+                        <img src="./images/pexels-pixabay-263041.jpg">
+                        <p>pizza</p>
+                        <p style="color:rgb(113, 113, 113); font-size:small;">allergies: ...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="recommendations">
+            <div>
+                <button>Get professional nutritionist advice</button>
+            </div>
+        </div>
+        <footer>
+            <a id="opened-nav" href="../home/home.html">
+                <span class="material-symbols-outlined">home</span>
+                <p>HOME</p>
+            </a>
+            <a href="../workout_page/workout.html">
+                <span class="material-symbols-outlined">fitness_center</span>
+                <p>WORKOUTS</p>
+            </a>
+            <a href="../meals/nutrition.html">
+                <span class="material-symbols-outlined">restaurant</span>
+                <p>NUTRITION</p>
+            </a>
+            <a href="../chat_summary/chat_summary.html">
+                <i class="fa-solid fa-comment-dots fa-xl"></i>
+                <p>CHATS</p>
+            </a>
+            <a href="../insightsPage/insights.html">
+                <span class="material-symbols-outlined">bar_chart</span>
+                <p>INSIGHTS</p>
+            </a>
+        </footer>
+    </main>
+
+
+
+    <script src="nutritionScript.js"></script>
+</body>
+
+</html>

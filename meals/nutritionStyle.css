@@ -1,0 +1,705 @@
+body {
+    color:black;
+    background-color:white;
+    margin:0;
+    padding:0;
+}
+
+.column {
+    display:flex;
+    flex-direction:column;
+}
+.row {
+    display:flex;
+    flex-direction:row;
+}
+
+header span {
+    width:20%;
+}
+header p {
+    width:20%;
+    margin:0;
+}
+header h1 {
+    width:70%;
+    margin:0;
+}
+
+
+.cal-Area-month {
+    display:flex;
+    flex-direction:column;
+    width:85vw;
+    padding:5px;
+    align-items:center;
+    justify-content: left;
+    border: 0.5px solid black;
+    border-radius:20px;
+    box-shadow: 0px 4px 3px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 0px 4px 3px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 4px 3px 0px rgba(0,0,0,0.75);
+    margin-bottom:50px;
+    margin-top:25px;
+}
+.cal-Area-week {
+    display:flex;
+    flex-direction:column;
+    width:85vw;
+    padding:5px;
+    align-items:center;
+    justify-content: left;
+    border: 0.5px solid black;
+    border-radius:20px;
+    box-shadow: 0px 4px 3px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 0px 4px 3px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 4px 3px 0px rgba(0,0,0,0.75);
+    margin-bottom:50px;
+    margin-top:25px;
+}
+
+select {
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25); 
+    border-radius:0px;
+    border:0px;
+    width:150px;
+    height:30px;
+    background-color:white;
+}
+.select-meal-area {
+    margin-bottom:15px;
+}
+.mealOptArea {
+    display:flex;
+    justify-content: center;
+}
+#mealOfTheDayOption {
+    width:80vw;
+    display:flex;
+    flex-direction:row;
+    align-items: center;
+    justify-content:space-between;
+}
+.mealOpt {
+    padding:5px;
+}
+#MealPictureArea {
+    width:85vw;
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    background-color:black;
+    border-radius:20px;
+    padding:5px;
+    background-color:#D9D9D9;
+    box-shadow: 0px 4px 3px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 0px 4px 3px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 4px 3px 0px rgba(0,0,0,0.75);
+    margin-bottom:50px;
+    margin-top:25px;
+}
+#camera-view {
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+    margin-top:10px;
+    margin-bottom:10px;
+}
+#video-feed {
+    width:80vw;
+    border-radius:15px;
+    background-color:black;
+}
+#image-preview {
+    margin-top:40px;
+    width:70vw;
+    text-align:center;
+    border-radius:15px;
+}
+.cameraButtons {
+    display:flex;
+    align-items:center;
+    width:100vw;
+    justify-content:space-around;
+}
+#capture-photo {
+    padding:0px;
+}
+.photo-button {
+    width: 50px;
+    height: 50px;
+    position: relative;
+  }
+  .circle {
+    position: absolute;
+    top: 12%;
+    left: 12%;
+    bottom: 12%;
+    right: 12%;
+    border-radius: 100%;
+    background-color: #ffffff;
+    opacity: 0;
+  }
+  .ring {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    
+    border-radius: 100%;
+    border: 5px solid #ffffff;
+    opacity: 0.8;
+  }
+  .photo-button .circle, .photo-button .ring {
+    transition: all 0.25s;
+  }
+  .photo-button:hover .circle {
+    opacity: 1;
+  }
+  .photo-button:active .ring {
+    opacity: 1;
+  }
+  .photo-button:active .circle {
+    opacity: 0.5;
+  }
+#upload-photo{
+    margin:20px;
+    width:65px;
+}
+.manage-image {
+    display:flex;
+    flex-direction:row;
+    justify-content: space-between;
+    align-items: center;
+}
+#save-image-meal {
+    padding:5px;
+    display:none;
+}
+#camera-area {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom:50px;
+}
+  
+/* CALENDAR CODE */
+.CalArea {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.wrapper {
+    width:80vw;
+    background-color:rgb(255, 249, 241);
+    background-color:#ffb70013;
+    border-radius: 10px;
+}
+.wrapper header {
+    display:flex;
+    align-items: center;
+    justify-content:space-between;
+    padding:25px 30px 10px;
+}
+header .current-date {
+    font-size:1.45rem;
+    font-weight:500;
+}
+.icons {
+    display:flex;
+}
+header .icons span {
+    height:38px;
+    width:38px;
+    color:#FFB600;
+    font-size:1.9rem;
+    margin:0 1px;
+    cursor:pointer;
+    text-align:center;
+    line-height:38px;
+    border-radius:50%;
+}
+header .icons span:hover {
+    background-color:antiquewhite;
+}
+header .icons span:last-child {
+    margin-right:-10px;
+}
+
+.calendar {
+    padding:20px;
+}
+.calendar ul {
+    display:flex;
+    list-style:none;
+    flex-wrap:wrap;
+    text-align:center;
+}
+.calendar .days {
+    margin-bottom:20px;
+    padding:0;
+}
+.calendar .weeks {
+    padding:0;
+}
+.calendar .weeks li {
+    font-weight:500;
+}
+.calendar ul li {
+    position:relative;
+    width: calc(100%/7);
+}
+.calendar .days li {
+    z-index:1;
+    cursor:pointer;
+    margin-top:30px;
+}
+.days li.inactive {
+    color:grey;
+}
+.days li.active {
+    color:white;
+}
+.calendar .days li::before {
+    position:absolute;
+    content:"";
+    height:40px;
+    width:40px;
+    top:50%;
+    left:50%;
+    z-index:-1;
+    border-radius:50%;
+    transform:translate(-50%,-50%);
+}
+.days li:hover::before {
+    background-color:lightblue;
+}
+.days li.active::before {
+    background:black;
+}
+/* to be assigned to dates according to calorie count: */
+.exceed {
+    color:rgb(255, 0, 0);
+}
+.good {
+    color:rgb(0, 189, 0);
+}
+
+.selected::before {
+    border:3px solid #FFB600;
+    width:40px;
+    height:50px;
+    border-radius:50%;
+    text-align:center;
+}
+
+
+
+/* meals plan boxes */
+.mealPlanArea {
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+}
+.mealPlan {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position:relative;
+    flex-direction:column;
+    margin-bottom:20px;
+}
+.row {
+    display:flex;
+    align-items:center;
+}
+.mealsOfTheDay {
+    width: 70vw;    
+    height:60px;
+    margin-bottom:8px;
+    background: #F6F6F6;
+    box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.25); 
+}
+.mealType {
+    width:34.9vw;
+}
+.line {
+    height:60px;
+    background-color:rgb(143, 143, 143);
+    width:0.2vw;
+}
+.meal {
+    width:34.9vw;
+    height:60px;
+    border-radius:0;
+}
+
+
+#mealDetails {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    position:relative;
+    flex-direction:column;
+    background: #F6F6F6;
+    width:70vw;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25); 
+    display:none;
+}
+.row label {
+    width:30vw;
+}
+#mealDetails input, textarea {
+    width:35vw;
+    margin-top:5px;
+    margin-bottom:5px;
+    padding:5px;
+}
+
+
+
+/* for meal of the day selection*/
+.meal-selector {
+    width:80vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom:20px;
+}
+.meal-selector2 {
+    width:80vw;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.meal-button {
+    background-color:#FFB600;
+    width:90px;
+    height:80px;
+    cursor: pointer;
+    border: none;
+    border-radius: 25px;
+    transition:  0.3s ease;
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+}
+
+.meal-button:hover {
+    background-color:#e3a300;
+}
+/* p.s. _ :hover takes child elements and _:hover takes the element itself */
+.selectedMeal {
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25); 
+}
+.arrange {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom:50px;
+}
+#editWaterIntakeArea {
+    display:none;
+}
+
+
+
+
+
+/* new stuff */
+.selection {
+    width:70vw;
+    background-color:#ffb70037;
+    padding-left:50px;
+    padding-right:50px;
+    padding-top:10px;
+    padding-bottom:10px;
+    border-radius:20px;
+    display:flex;
+    justify-content: space-between;
+}
+.selection button {
+    width:20%;
+    background-color:transparent;
+    height:30px;
+    border-radius:20px;
+    border:none;
+    color:grey;
+}
+.current-day-stuff {
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    margin-top:25px;
+}
+.cal-Area-day {
+    width:85vw;
+    padding:5px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content: left;
+    border: 0.5px solid black;
+    border-radius:20px;
+    box-shadow: 0px 4px 3px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 0px 4px 3px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 4px 3px 0px rgba(0,0,0,0.75);
+    margin-bottom:50px;
+    margin-top:25px;
+}
+.cal-num {
+    width:100%;
+    display:flex;
+    justify-content: space-around;
+}
+.cal-num-box {
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+}
+.notes {
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    margin-top:20px;
+    margin-bottom:10px;
+}
+.note {
+    margin:0;
+    margin-bottom:10px;
+}
+
+.showButtonSelected {
+    color:rgb(0, 0, 0) !important;
+}
+
+
+
+
+
+.legendBox {
+    width:50px;
+    height:5px;
+}
+.green {
+    background-color:#7DE89B;
+}
+.red {
+    background-color:#E87D7D;
+}
+.legendForDisplay {
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+}
+.legendEach {
+    width:30vw;
+}
+.legendEach p {
+    margin-left:20px;
+}
+
+#nullMealList, #nullWaterIntake {
+    display:none;
+    align-items: center;
+    justify-content: center;
+}
+.nullText p {
+    width:78vw;
+    text-align: center;
+}
+.nullText {
+    width:80vw;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    background-color:#F3F3F3;
+    border-radius:30px;
+}
+#editWaterIntake {
+    width:80vw;
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+    background-color:#D9D9D9;
+    border-radius:30px;
+    margin-top:25px;
+}
+.water-intake-area, .goal-water-area {
+    width:80vw;
+    display:flex;
+    flex-direction:row;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom:20px;
+}
+.water-intake-area input {
+    width:20vw;
+}
+#saveWaterIntake {
+    width: 133px;
+    height: 24.328px;
+    border-radius: 25px;
+    background: #FFF;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    margin-bottom:20px;
+}
+#DisplayWaterIntake {
+    width:80vw;
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+    background-color:#F3F3F3;
+    border-radius:30px;
+    margin-top:25px;
+}
+#DisplayWaterIntakeArea {
+    display:none;
+}
+
+/* nutrition Facts */
+#nutritionFactsArea {
+    display:none;
+    align-items: center;
+    justify-content: center;
+}
+.nutritionBox {
+    padding:20px;
+    width:80vw;
+    background-color:#F3F3F3;
+    border-radius:30px;
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+}
+.nutritionBoxes {
+    width:100%;
+}
+.nutritionRows {
+    display:flex;
+    flex-direction:row;
+    justify-content: space-between;
+    margin-bottom:10px;
+}
+#NutritionFactsText {
+    border-top: 1px solid #BBBBBB;
+    border-bottom:1px solid #BBBBBB;
+}
+.buttonArea {
+    display:flex;
+    justify-content: right;
+}
+
+
+/* from online button code */
+#EditMealButton {
+  background-color: #FFFFFF;
+  border: 1px solid #222222;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #222222;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  margin: 0;
+  outline: none;
+  padding: 13px 23px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  touch-action: manipulation;
+  transition: box-shadow .2s,-ms-transform .1s,-webkit-transform .1s,transform .1s;
+  user-select: none;
+  -webkit-user-select: none;
+  width: auto;
+}
+#EditMealButton:focus-visible {
+  box-shadow: #222222 0 0 0 2px, rgba(255, 255, 255, 0.8) 0 0 0 4px;
+  transition: box-shadow .2s;
+}
+#EditMealButton:active {
+  background-color: #F7F7F7;
+  border-color: #000000;
+  transform: scale(.96);
+}
+#EditMealButton:disabled {
+  border-color: #DDDDDD;
+  color: #DDDDDD;
+  cursor: not-allowed;
+  opacity: 1;
+}
+
+.recommendations {
+    margin-top:25px;
+    margin-bottom:25px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.recommendations button {
+    padding:15px;
+    background-color:#FFB600;
+    border-radius:25px;
+}
+
+#rec-meals {
+    width:70vw;
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    border-radius:30px;
+    background-color:#F3F3F3;
+    overflow:hidden;
+}
+#rec-meal-buttons{
+    width:100%;
+    display:flex;
+    justify-content: space-around;
+}
+#rec-meal-buttons button {
+    width:50px;
+    height:40px;
+}
+#rows-of-meals {
+    width:50vw;
+    display:flex;
+    flex-direction:row;
+    margin-bottom:20px;
+}
+.recMeal img {
+    width:250px;
+    height:200px;
+    border-top-left-radius:20px;
+    border-top-right-radius: 20px;
+}
+.recMeal p {
+    text-align: center;
+}
+.recMeal {
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25); 
+    border-radius:20px;
+    margin-right:10px;
+}
+
+/* for line graph */
+.chart-container {
+    width: 600px;
+    margin: 0 auto;
+}
