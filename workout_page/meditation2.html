@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="quick-workout.css">
+    <link rel="stylesheet" type="text/css" href="yoga.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width", initial-scale="1.0">
+</head>
+
+<body>
+
+    <div class="back-button">
+        <a href="meditation.html">
+            <i class="fas fa-arrow-left"></i>
+        </a>
+        <h1>Meditation - Side arm stretch</h1>
+    </div>
+
+    <!-- Exercise Preview -->
+    <div class="exercise-preview">
+        <img id="exerciseImage" src="images/meditation2.jpg" alt="Exercise" width="40%" height="70%">
+        <p id="exerciseDuration">Duration: 30 seconds</p>
+    </div>
+
+    <div id="app">
+        <div class="base-timer">
+            <svg class="base-timer__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <g class="base-timer__circle">
+                    <circle class="base-timer__path-elapsed" cx="50" cy="50" r="45"></circle>
+                    <path id="base-timer-path-remaining" stroke-dasharray="283" class="base-timer__path-remaining arc"
+                        d="
+                       M 50, 50
+                       m -45, 0
+                       a 45,45 0 1,0 90,0
+                       a 45,45 0 1,0 -90,0
+                       "></path>
+                </g>
+            </svg>
+            <span id="base-timer-label" class="base-timer__label"></span>
+        </div>
+    </div>
+
+    <div class="buttons">
+        <a href="meditation1.html">
+            <i class="fas fa-arrow-left"></i>
+        </a>
+        <button onclick="start()" class="start">
+            Start
+        </button>
+        <button onclick="stop()" class="stop">
+            Stop
+        </button>
+        <button onclick="reset()" class="reset">
+            Reset
+        </button>
+        <a href="meditation3.html" id="right-arrow-link">
+            <i class="fas fa-arrow-right"></i>
+        </a>
+    </div>
+
+
+    <script src="quick-workout.js"></script>
+
+</body>
+
+</html>

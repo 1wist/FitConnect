@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width", initial-scale="1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="yoga.css">
+    <link rel="stylesheet" type="text/css" href="icon.css">
+    <link rel="stylesheet" href="quick-workout.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <title>View Completed Workout</title>
+    <style>
+        h1 {
+            display: block;
+            font-size: 2em;
+            margin-block-start: 0.67em;
+            margin-block-end: 0.67em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            font-weight: bold;
+
+        }
+
+        /* Add CSS styling for the completed workouts */
+        .yoga {
+            /* Adjust the background color as needed */
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            /* Place date above the yoga-pose */
+            align-items: center;
+        }
+
+        .yoga-pose {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            /* Align items on the right */
+            width: 100%;
+            /* Make this div occupy all available space */
+        }
+
+        .icon {
+            margin-right: 3px;
+            /* Adjust the color of the tick icon */
+        }
+
+        .time {
+            margin-left: 0px;
+            margin-right: 160px;
+            margin-bottom: auto;
+
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Your content for the "View Completed Workout" page goes here -->
+    <h1>Your Completed Workout History</h1>
+    <!-- <p>View your completed workouts and track your progress here!</p> -->
+
+    <div id="completedWorkoutArea">
+    </div>
+
+    <div class="quick-workout">
+        <!-- You can add buttons or links for navigating back or taking other actions -->
+        <div class="quick-workout-button" id="backButton">
+            <a href="workout.html" class="quick-workout-button1">Back to Workout Page</a>
+        </div>
+    </div>
+
+    <script>
+        // Retrieve completed workouts from localStorage
+        const completedWorkouts = JSON.parse(localStorage.getItem("completedWorkouts")) || [];
+
+        // Reverse the completedWorkouts array to display the most recent workout on top
+        completedWorkouts.reverse();
+
+        // Reference to the div where completed workouts will be displayed
+        const completedWorkoutArea = document.getElementById("completedWorkoutArea");
+
+        // Loop through completed workouts and create HTML elements for each
+        completedWorkouts.forEach((workout, index) => {
+            const workoutDiv = document.createElement("div");
+            workoutDiv.classList.add("yoga"); // You can style this using CSS
+
+            // Create the date paragraph
+            const dateParagraph = document.createElement("p");
+            dateParagraph.classList.add("time");
+            dateParagraph.textContent = workout.date; // Display the workout date as time
+
+            // Create the workout details structure
+            const yogaPoseDiv = document.createElement("div");
+            yogaPoseDiv.classList.add("yoga-pose");
+
+            const tickIcon = document.createElement("div");
+            tickIcon.classList.add("icon");
+            tickIcon.innerHTML = '<i class="fas fa-check"></i>';
+
+            // Create the workout details structure
+            const poseInfoDiv = document.createElement("div");
+            poseInfoDiv.classList.add("pose-info");
+
+            const workoutNameHeading = document.createElement("h2");
+            workoutNameHeading.textContent = workout.name; // Display the workout name
+            // Create the workout details structure
+            const durationParagraph = document.createElement("p");
+            durationParagraph.innerHTML = `Duration: <br>${workout.duration}`; // Display the workout duration with a line break
+
+
+            // Append elements to the workoutDiv
+            poseInfoDiv.appendChild(workoutNameHeading);
+            poseInfoDiv.appendChild(durationParagraph);
+
+            yogaPoseDiv.appendChild(tickIcon);
+            yogaPoseDiv.appendChild(poseInfoDiv);
+
+            workoutDiv.appendChild(dateParagraph);
+            workoutDiv.appendChild(yogaPoseDiv);
+
+            completedWorkoutArea.appendChild(workoutDiv);
+        });
+    </script>
+</body>
+
+</html>

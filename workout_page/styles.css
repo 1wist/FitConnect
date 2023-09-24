@@ -1,0 +1,295 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f6f6f6;
+    /* Light gray background */
+    color: #333333;
+    /* Dark gray text color */
+}
+
+h1 {
+    text-align: center;
+}
+
+.exercise {
+    cursor: pointer;
+    position: relative;
+    border: 1px solid #ff9900;
+    margin: 10px;
+}
+
+
+.exercise-details {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    /* Semi-transparent white background for text */
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.exercise-list {
+    display: flex;
+    flex-wrap: wrap;
+    /* Wrap the exercises into multiple rows */
+    justify-content: center;
+    /* Horizontally center the items */
+    align-items: center;
+    /* Vertically center the items */
+    gap: 20px;
+    /* Add some spacing between the exercises */
+    margin-top: 20px;
+}
+
+.bookmark-icon {
+    cursor: pointer;
+    color: #ff9900;
+    /* Darker orange color */
+    font-size: 20px;
+    /* Smooth transition on hover */
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    transition: color 0.1s;
+}
+
+.bookmark-icon:hover {
+    color: #ff4500;
+    /* Even darker orange on hover */
+}
+
+.bookmarked-list {
+    border: 1px solid #ff9900;
+    /* Darker orange border */
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #fff3e6;
+    /* Lighter orange background */
+}
+
+.level-buttons {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.level-buttons button {
+    display: inline-block;
+    background-color: #ffffff;
+    /* White background */
+    color: #ff9900;
+    /* Darker orange text color */
+    border: 1px solid #ff9900;
+    /* Darker orange border */
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    /* Smooth transition on hover */
+}
+
+.level-buttons button:hover {
+    background-color: #ff9900;
+    /* Darker orange background on hover */
+    color: #ffffff;
+    /* White text color on hover */
+}
+
+.bookmark-icons {
+    display: flex;
+    align-items: center;
+    /* Vertically center items */
+}
+
+.bookmark-icon-top {
+    cursor: pointer;
+    position: sticky;
+    top: 20px;
+    right: 20px;
+    color: #ff9900;
+    font-size: 20px;
+    transition: color 0.3s;
+    /* margin: auto; */
+    margin-left: auto;
+    /* margin-right: 0px; */
+}
+
+.bookmark-icon-top:hover {
+    color: #ff4500;
+    /* Even darker orange on hover */
+}
+
+#myInput {
+    display: none;
+}
+
+.bookmarked-exercise {
+    background-image: url('images/your-image.jpg');
+    /* Replace with the actual image path */
+    background-size: cover;
+    /* Adjusts the image size to cover the div */
+    background-position: center;
+    /* Centers the background image */
+    opacity: 0.9;
+    /* Adjust the opacity value to your preference */
+    padding: 20px;
+    /* Adds some padding to the content inside the div */
+}
+
+.exercise-image {
+    max-width: 100px;
+    max-height: 100px;
+    margin-top: 10px;
+    background-image: url('images/pushups.jpg');
+}
+
+/* Add this CSS to style the search container */
+.search-container {
+    display: flex;
+    align-items: center;
+}
+
+/* Add margin to create space between the icon and input */
+.search-icon-top {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.exercise-image {
+    width: 100%;
+    /* Make the image take up the entire width of its container */
+    height: 100%;
+    /* Make the image take up the entire height of its container */
+    object-fit: cover;
+    /* Ensure the image covers the container while maintaining aspect ratio */
+}
+
+/* Add this CSS to style the exercise details */
+.exercise-details {
+    position: relative;
+    /* Add this to make the exercise details relative */
+    background: rgba(255, 255, 255, 0.8);
+    /* Add a background color with opacity */
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: -30px;
+    /* Adjust this value as needed */
+}
+
+.quick-workout {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.quick-workout-button {
+    background-color: #ff9900;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    text-decoration: none;
+}
+
+#quickWorkoutBtn:hover {
+    background-color: #ff4500;
+}
+
+.quick-workout-button1 {
+    /* background-color: #ff9900; */
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    text-decoration: none;
+}
+
+/* .level-buttons {
+    width: auto;
+} */
+
+/* Style the active button differently */
+.level-buttons button.active {
+    background-color: #ff9900;
+    color: #ffffff;
+    border-color: #ff9900;
+}
+
+/* Style the buttons for each page */
+.level-buttons button#beginnerBtn.active {
+    background-color: #ff9900;
+    /* Orange background for active beginner button */
+    color: #ffffff;
+    /* White text color for active beginner button */
+    border-color: #ff9900;
+    /* Orange border color for active beginner button */
+}
+
+.level-buttons button#intermediateBtn.active {
+    background-color: #ff6600;
+    /* Adjust the shade of orange for active intermediate button */
+    color: #ffffff;
+    /* White text color for active intermediate button */
+    border-color: #ff6600;
+    /* Adjust the border color for active intermediate button */
+}
+
+.level-buttons button#advancedBtn.active {
+    background-color: #ff3300;
+    /* Adjust the shade of orange for active advanced button */
+    color: #ffffff;
+    /* White text color for active advanced button */
+    border-color: #ff3300;
+    /* Adjust the border color for active advanced button */
+}
+
+/* Style the quick workout container */
+.quick-workout {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Style the quick workout button */
+.quick-workout-button {
+    background-color: #ff9900;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    margin-bottom: 20px;
+    /* Add some margin to separate from the content below */
+}
+
+.quick-workout-button:hover {
+    background-color: #ff4500;
+}
+
+.level-buttons button#allBtn.active {
+    background-color: #ff6600;
+    /* Adjust the color for the active "All" button */
+    color: #ffffff;
+    /* White text color for the active "All" button */
+    border-color: #ff6600;
+    /* Adjust the border color for the active "All" button */
+}
+
+#rec-icons {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    color: #ff9900;
+    /* transform: translate(10px, 10px); */
+
+}
+

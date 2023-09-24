@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Main Exercise Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../nabar/navbar.css">
+    <link rel="stylesheet" href="../homepage/homestyle.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/966c797ca6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200&family=Vollkorn&display=swap');
+    </style>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            display: flex;
+            flex-direction: row;
+            font-family: 'Vollkorn', serif;
+        }
+
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            background-color: transparent;
+            width: 100vw;
+            /*z-index: 99;*/
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo img {
+            text-align: center;
+            color: black;
+            width: 50px;
+            height: 50px;
+            /*height: calc(100vh/11);*/
+        }
+
+        .logo p {
+            /*padding-top: calc(100vh/44);*/
+            font-size: large;
+            font-family: Vollkorn;
+        }
+
+        .logo {
+            display: flex;
+            width: 85vw;
+            align-items: center;
+        }
+
+        .right-icons {
+            display: flex;
+            align-items: center;
+            width: 15vw;
+            justify-content: space-evenly;
+        }
+
+        .notification-icon,
+        .profile-icon {
+            font-size: 1.2rem;
+            color: black;
+            margin: 0 10px;
+        }
+
+        .notification-icon :hover,
+        .profile-icon:hover {
+            cursor: pointer;
+        }
+
+        footer {
+            font-family: 'Inter', sans-serif;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 75px;
+            background-color: #FFF;
+            color: rgb(0, 0, 0);
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding-top: 20px;
+            padding-top: 10px;
+        }
+
+        footer p {
+            font-size: xx-small;
+            margin: 0;
+        }
+
+        /* css link styling for footer and header, jic other pages also use a tag*/
+        footer a:link {
+            text-decoration: none;
+            color: black;
+        }
+
+        footer a:visited {
+            text-decoration: none;
+            color: black;
+        }
+
+        footer a:hover {
+            text-decoration: none;
+            color: grey !important;
+        }
+
+        footer a:active {
+            text-decoration: none;
+            color: black;
+        }
+
+        header a:link {
+            text-decoration: none;
+            color: black;
+        }
+
+        header a:visited {
+            text-decoration: none;
+            color: black;
+        }
+
+        header a:hover {
+            text-decoration: none;
+            color: grey !important;
+        }
+
+        header a:active {
+            text-decoration: none;
+            color: black;
+        }
+
+        .fa-comment-dots {
+            width: 24px;
+            height: 17px;
+        }
+
+        /* hardcode css id in html for current page opened */
+        #opened-nav {
+            color: #f5b512;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="navbar" style="background-color:white;">
+            <div class="logo">
+                <img src="../nabar/navbar_media/fitconnect_logo.png">
+                <p>FitConnect</p>
+            </div>
+            <div class="right-icons">
+                <a href="../notification/notifications.html">
+                    <div class="notification-icon" onclick="myNoti()"><i class="fas fa-bell"></i></div>
+                </a>
+                <div class="profile-icon" onclick="myPfp()"><a href="../profile/profile.html"><i
+                            class="fas fa-user"></i></a></div>
+            </div>
+
+        </div>
+
+    </header>
+    <div style="margin-top: 70px;margin-bottom: 75px;">
+        <div class="bookmark-icons">
+            <div class="search-container">
+                <div class="search-icon-top" id="searchIconTop">
+                    <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
+                </div>
+                <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for exercises.."
+                    title="Type in an exercise">
+            </div>
+            <div class="bookmark-icon-top" id="bookmarkIconTop">
+                <i class="fa-solid fa-bookmark"></i>
+            </div>
+        </div>
+
+        <div class="level-buttons">
+            <button id="allBtn">All</button>
+            <button id="beginnerBtn">Beginner</button>
+            <button id="intermediateBtn">Intermediate</button>
+            <button id="advancedBtn">Advanced</button>
+        </div>
+
+        <div class="exercise-list" id="exerciseList"></div>
+
+        <div class="search-exercise-container">
+            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for exercises.."
+                title="Type in an exercise">
+
+            <ul id="myUL">
+                <li><a href="exercises/yoga.html">Yoga</a></li>
+                <li><a href="#">Cardio</a></li>
+                <li><a href="#">Zumba</a></li>
+                <li><a href="#">Pilates</a></li>
+                <li><a href="#">Gym</a></li>
+                <li><a href="#">Kick Boxing</a></li>
+            </ul>
+
+            <script src="script.js"></script>
+
+        </div>
+
+    </div>
+    </div>
+
+    <footer>
+        <a id="opened-nav" href="../home/home.html">
+            <span class="material-symbols-outlined">home</span>
+            <p>HOME</p>
+        </a>
+        <a href="../workout_page/workout.html">
+            <span class="material-symbols-outlined">fitness_center</span>
+            <p>WORKOUTS</p>
+        </a>
+        <a href="../meals/nutrition.html">
+            <span class="material-symbols-outlined">restaurant</span>
+            <p>NUTRITION</p>
+        </a>
+        <a href="../chat_summary/chat_summary.html">
+            <i class="fa-solid fa-comment-dots fa-xl"></i>
+            <p>CHATS</p>
+        </a>
+        <a href="../insightsPage/insights.html">
+            <span class="material-symbols-outlined">bar_chart</span>
+            <p>INSIGHTS</p>
+        </a>
+    </footer>
+</body>
+
+</html>

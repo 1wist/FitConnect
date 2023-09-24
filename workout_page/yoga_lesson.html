@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width", initial-scale="1.0">
+    <link rel="stylesheet" type="text/css" href="yoga.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" href="quick-workout.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <title>Yoga Lesson Video</title>
+    <style>
+        /* CSS for the container */
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #f0f0f0;
+            /* Background color for the box */
+            padding: 20px;
+            /* Padding to give some space around the text */
+            border: 2px solid #ccc;
+            /* Border for the box */
+            border-radius: 10px;
+            /* Rounded corners for the box */
+            text-align: center;
+            /* Center-align text within the box */
+            display: flex;
+            /* Enable flexbox to arrange elements side by side */
+            flex-direction: column;
+            /* Stack elements vertically */
+        }
+
+        /* CSS for the text inside the container */
+        .container p {
+            margin: 0;
+            /* Remove default margin for paragraphs */
+            font-size: 16px;
+            /* Adjust font size as needed */
+            line-height: 1.5;
+            /* Line spacing */
+        }
+
+        /* Chat box styles */
+        .chat-box {
+            flex: 1;
+            /* Expand to fill available space */
+            padding: 10px;
+            background-color: #fff;
+            /* White background */
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            margin-top: 10px;
+            /* Add space between video and chat box */
+            overflow-y: auto;
+            /* Enable vertical scrolling */
+            max-height: 315px;
+            /* Limit chat box height */
+        }
+
+        /* Chat message styles */
+        .message {
+            padding: 5px 10px;
+            border-radius: 5px;
+            margin: 5px 0;
+            align-self: flex-start;
+            /* Left-align user messages */
+            background-color: transparent;
+            /* Remove background color */
+            text-align: left;
+        }
+
+        /* Trainer's chat message styles */
+        .trainer-message {
+            background-color: #ff9900;
+            /* Orange background for trainer's messages */
+            color: #fff;
+            /* White text color for trainer's messages */
+            align-self: flex-end;
+            /* Right-align trainer messages */
+        }
+
+        /* Icon styles */
+        .icon {
+            margin-right: 5px;
+            /* Add space between the icon and the name */
+            font-size: 18px;
+            /* Adjust the icon size as needed */
+        }
+
+
+        /* Chat input styles */
+        .chat-input {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+            /* Add space between chat box and input */
+        }
+
+        #messageInput {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        #sendButton {
+            background-color: #ff9900;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        #sendButton:hover {
+            background-color: #ff4500;
+        }
+
+        /* CSS for desktop and larger screens */
+        .container.chat-container {
+            width: 90%;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #f0f0f0;
+            /* Background color for the box */
+            padding: 20px;
+            /* Padding to give some space around the text */
+            border: 2px solid #ccc;
+            /* Border for the box */
+            border-radius: 10px;
+            /* Rounded corners for the box */
+            text-align: center;
+            /* Center-align text within the box */
+            display: flex;
+            /* Enable flexbox to arrange elements side by side */
+            flex-direction: column;
+            /* Stack elements vertically */
+        }
+
+        /* CSS for mobile screens - Hide the chat container */
+        @media (max-width: 767px) {
+            .container.chat-container {
+                display: none;
+                /* Hide the chat container on mobile devices */
+            }
+        }
+
+        .chat-icon {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="back-button">
+        <a href="yoga.html">
+            <i class="fas fa-arrow-left"></i>
+        </a>
+        <h1>Yoga Lesson</h1>
+        &nbsp;&nbsp;
+        <!-- Chat icon for mobile screens -->
+        <div class="chat-icon" id="chatIcon" onclick="toggleChat()">
+            <i class="fas fa-comments"></i>
+        </div>
+    </div>
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/EvMTrP8eRvM?si=kJw-2sfJ9KwbPv1V"
+        title="YouTube video player" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe>
+
+
+
+    <!-- Chat box container -->
+    <div class="container chat-container" id="chatContainer">
+        <div class="chat-box" id="chatBox">
+            <!-- Trainer's chat message -->
+            <div class="message trainer-message">
+                <i class="fas fa-user icon"></i>Great job! Continue to engage your core muscles and focus on keeping your knees aligned with your ankles. Remember, maintaining proper posture is key not only for maximizing the effectiveness of your yoga practice but also for reducing the risk of strain and injury. Keep up the mindful practice!
+            </div>
+        </div>
+
+        <!-- Chat input section -->
+        <div class="chat-input">
+            <input type="text" id="messageInput" placeholder="Type your message...">
+            <button id="sendButton">Send</button>
+        </div>
+    </div>
+
+
+    <div class="quick-workout">
+        <div class="quick-workout-button" id="quickWorkoutBtn">
+            <a href="complete.html" style="text-decoration: none; color: white;">
+                Completed workout
+            </a>
+        </div>
+    </div>
+
+
+    <script>
+        // JavaScript to handle sending user messages and displaying them in the chat
+        const chatBox = document.getElementById("chatBox");
+        const messageInput = document.getElementById("messageInput");
+        const sendButton = document.getElementById("sendButton");
+
+        sendButton.addEventListener("click", () => {
+            const userMessage = messageInput.value.trim();
+            if (userMessage !== "") {
+                addMessage("User", userMessage);
+                messageInput.value = "";
+            }
+        });
+
+        function addMessage(sender, message) {
+            const messageDiv = document.createElement("div");
+            messageDiv.className = "message";
+
+            if (sender === "User") {
+                messageDiv.innerHTML = `<i class="fas fa-user icon"></i> User: ${message}`;
+            } else {
+                messageDiv.innerHTML = `<i class="fas fa-user icon"></i> Trainer: ${message}`;
+                messageDiv.classList.add("trainer-message");
+            }
+
+            chatBox.appendChild(messageDiv);
+            chatBox.scrollTop = chatBox.scrollHeight; // Scroll to the bottom of the chat box
+        }
+        // Replace 'YOUR_API_KEY' with your actual API key
+        const apiKey = 'YOUR_API_KEY';
+
+        // Function to send user input to the NLP model
+        async function sendToNLPModel(userMessage) {
+            const response = await fetch('https://api.example.com/nlp-model', {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${apiKey}`,
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ userMessage }),
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                const trainerResponse = data.trainerResponse; // Extract the response from the model
+                addMessage("Trainer", trainerResponse); // Display trainer's response in the chat
+            } else {
+                console.error('Error sending message to NLP model');
+            }
+        }
+
+        // Example: Capture user input and send it to the NLP model
+        const userMessage = "How do I improve my posture?";
+        sendToNLPModel(userMessage);
+
+        // JavaScript code to toggle chat visibility
+        function toggleChat() {
+            const chatContainer = document.getElementById("chatContainer");
+            chatContainer.style.display = chatContainer.style.display === "none" ? "block" : "none";
+        }
+
+    </script>
+    <script>
+        localStorage.setItem('openedExercise', "yoga");
+    </script>
+</body>
+
+</html>

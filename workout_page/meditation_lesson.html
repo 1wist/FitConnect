@@ -1,0 +1,67 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="yoga.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" href="quick-workout.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <title>Meditation Lesson Video</title>
+    <script src="https://www.youtube.com/iframe_api"></script>
+</head>
+
+<body>
+    <div class="back-button">
+        <a href="meditation.html">
+            <i class="fas fa-arrow-left"></i>
+        </a>
+        <h1>Meditation Lesson</h1>
+    </div>
+    <iframe id="youtube-player" width="560" height="315"
+        src="https://www.youtube.com/embed/nvFm30ZAZRY?si=xhsFXYo1N_CH4sF1" title="YouTube video player" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe>
+    <div class="quick-workout">
+        <div class="quick-workout-button" id="quickWorkoutBtn">
+            <a href="complete.html" style="text-decoration: none; color: white;">
+                Completed workout
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Create a variable to store the YouTube player
+        let player;
+
+        // Function called when the YouTube API is ready
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('youtube-player', {
+                events: {
+                    'onStateChange': onPlayerStateChange
+                }
+            });
+        }
+
+        // Function called when the player's state changes
+        function onPlayerStateChange(event) {
+            if (event.data === YT.PlayerState.ENDED) {
+                // Redirect to the complete.html page when the video ends
+                window.location.href = "complete.html";
+            }
+        }
+        function onPlayerStateChange(event) {
+            if (event.data === YT.PlayerState.ENDED) {
+                console.log("Video ended. Redirecting to complete.html");
+                window.location.href = "complete.html";
+            }
+        }
+
+    </script>
+    <script>
+        localStorage.setItem('openedExercise', "meditation");
+    </script>
+
+</body>
+
+</html>

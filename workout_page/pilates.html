@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width", initial-scale="1.0">
+    <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
+
+    <link rel="stylesheet" type="text/css" href="yoga.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" href="quick-workout.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+
+    <title>Pilates</title>
+</head>
+
+<body>
+
+    <div class="back-button">
+        <a href="workout.html">
+            <i class="fas fa-arrow-left"></i>
+        </a>
+        <h1>Pilates</h1>
+    </div>
+
+    <!-- <img src="../workout_page/images/pilates.jpg" alt="" width="50%" height="80%"> -->
+
+    <div class="yoga" ondragover="handleDragOver(event)" ondrop="handleDrop(event)">
+
+
+        <!-- Pilates Poses -->
+
+        <div class="yoga-pose" id="exercise1" draggable="true" ondragstart="handleDragStart(event)">
+            <img src="../workout_page/images/pilates1.jpg" alt="Pilates Pose 1">
+            <div class="pose-info">
+                <h2>Crisscross</h2>
+                <p>30 seconds</p>
+            </div>
+        </div>
+        
+        <div class="yoga-pose" id="exercise2" draggable="true" ondragstart="handleDragStart(event)">
+            <img src="../workout_page/images/pilates2.jpg" alt="Pilates Pose 2">
+            <div class="pose-info">
+                <h2>Side plank</h2>
+                <p>30 seconds</p>
+            </div>
+        </div>
+        
+        <div class="yoga-pose" id="exercise3" draggable="true" ondragstart="handleDragStart(event)">
+            <img src="../workout_page/images/Pilates3.jpg" alt="Pilates Pose 3">
+            <div class="pose-info">
+                <h2>Squats</h2>
+                <p>30 seconds</p>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <script src="quick-workout.js"></script>
+
+
+    <div class="quick-workout">
+        <div class="quick-workout-button" id="quickWorkoutBtn">
+            <a href="pilates1.html" class="quick-workout-button1">Start</a>
+            <!-- <button class="quick-workout-button" id="quickWorkoutBtn">Start Quick Workout</button> -->
+        </div>
+        <div class="quick-workout-button" id="quickWorkoutBtn">
+            <a href="pilates_lesson.html" class="quick-workout-button1">Lesson Video</a>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
