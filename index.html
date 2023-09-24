@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            /* Prevent scrollbar from showing during fade */
+        }
+
+        .splash-logo {
+            display: block;
+            width: 200px;
+            /* Adjust the width as needed */
+            opacity: 0;
+            /* Start with zero opacity */
+            transition: opacity 1s ease-in-out;
+            /* Add fade effect */
+        }
+
+        /* Add class to fade in the logo */
+        .fade-in {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Logo splash screen -->
+    <div class="splash-logo fade-in"> <!-- Apply the fade-in class -->
+        <img src="././nabar/navbar_media/fitconnect_logo_start.png" alt="Logo">
+    </div>
+
+    <script>
+        // Redirect after a delay
+        window.addEventListener("load", function () {
+            setTimeout(function () {
+                document.querySelector('.splash-logo').classList.remove('fade-in');
+                setTimeout(function () {
+                    window.location.href = "./home/home.html"; // Redirect to the home page
+                }, 400); // Delay in milliseconds for the fade-out (1 second)
+            }, 2000); // Delay in milliseconds for the fade-in (3 seconds)
+        });
+    </script>
+</body>
+
+</html>
