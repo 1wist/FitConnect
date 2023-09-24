@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="bookmark-styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Center the entire content vertically and horizontally */
+        html, body {    
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f6f6f6;
+            color: #333333;
+            font-family: Arial, sans-serif;
+        }
+
+        .back-button {
+            display: flex;
+            align-items: center;
+            color: black;
+        }
+
+        .back-button i {
+            margin-right: 10px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2em;
+            font-weight: bold;
+            font-family: monospace;
+        }
+
+        /* Additional styles for exercise list, etc. */
+    </style>
+</head>
+
+<body>
+    <div class="back-button">
+        <a href="workout.html">
+            <i class="fas fa-arrow-left"></i>
+        </a>
+        <h1>My bookmarks</h1>
+    </div>
+
+    <div class="exercise-list" id="bookmarkedList"></div>
+    <script src="bookmark-script.js"></script>
+</body>
+
+</html>

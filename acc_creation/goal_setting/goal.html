@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+    <link rel="stylesheet" href="../goal_setting/goal.css">
+</head>
+
+<body>
+    <div class="container1">
+        <h2 style="margin-top: 30px;">What's your Goal?</h2>
+        <h4 style="margin-bottom: 50px;">To give you a better experience, we need to know you.</h4>
+
+        <!-- <button class="wl">Weight Loss</button>
+        <button class="mg">Muscle Gain</button>
+        <button class="ma">Maintenance</button>
+        <button class="ov">Overall Health</button> -->
+
+        <label class="container">Weight Loss
+            <input type="checkbox">
+            <span class="checkmark"></span>
+        </label>
+
+        <label class="container">Muscle Gain
+            <input type="checkbox">
+            <span class="checkmark"></span>
+        </label>
+
+        <label class="container">Maintenance
+            <input type="checkbox">
+            <span class="checkmark"></span>
+        </label>
+
+        <label class="container">Overall Health
+            <input type="checkbox">
+            <span class="checkmark"></span>
+        </label>
+
+
+    </div>
+
+</body>
+<script>
+    const goalOptions = document.querySelectorAll(".container");
+    goalOptions.forEach(x => {
+        x.addEventListener('click', (event) => {
+            if (event.target.tagName === 'LABEL') {
+                const goalarray = document.querySelectorAll('label');
+                goalarray.forEach((option) => {
+                })
+                event.target.classList.toggle("active");
+            }
+        });
+    })
+
+</script>
+
+</html>

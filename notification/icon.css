@@ -1,0 +1,38 @@
+.circular-button {
+    display: inline-block;
+    width: 60px; /* Adjust the width and height as needed */
+    height: 60px;
+    color: orange; /* Set the color to orange */
+    text-align: center;
+    line-height: 60px;
+    font-size: 20px; /* Adjust the font size as needed */
+    margin: 10px;
+    cursor: pointer;
+    transition: color 0.3s; /* Add transition effect for color */
+    background: none; /* Remove background */
+    border: none; /* Remove border */
+}
+
+/* Change icon color on hover */
+.circular-button:hover {
+    color: darkorange; /* Change color on hover */
+}
+
+.icon {
+    display: inline-block;
+    width: 60px; /* Adjust the width and height as needed */
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+    font-size: 24px; /* Adjust the font size as needed */
+    color: white; /* Set the icon color to white */
+    background-color: orange; /* Set the background color to orange */
+    border-radius: 50%; /* Create a circular shape */
+    margin: 10px; /* Adjust spacing as needed */
+}
+
+/* Style the <p> element inside the icon container */
+.time {
+    font-size: 12px; /* Adjust the font size as needed */
+    margin-right: auto;
+}

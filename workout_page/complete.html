@@ -1,0 +1,111 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="quick-workout.css">
+    <link rel="stylesheet" type="text/css" href="yoga.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <title>Complete Workout</title>
+</head>
+<body>
+    <img src="images/trophy.jpg" alt="" width="50%" height="80%">
+    <h2 style="color:gold;">Congratulations!</h2>
+    <p>You have completed the Workout!</p>
+    <p>You earned 100 points!</p>
+    <p>Calories lost: 180</p>
+    
+    <div class="quick-workout">
+        <div class="quick-workout-button" id="quickWorkoutBtn">
+            <a href="workout.html" class="quick-workout-button1">Next workout</a>
+        </div>
+        <div class="quick-workout-button" id="quickWorkoutBtn">
+            <a href="view_completed_workout.html" class="quick-workout-button1">View completed workout</a>
+        </div>
+    </div>
+    <!-- <script>
+        let completedWorkouts = []
+        // document.getElementById("completedWorkoutArea").innerHTML= completedWorkouts;
+        if (localStorage.getItem('completedWorkouts') === null) {
+            console.log(localStorage.getItem('completedWorkouts'))
+            console.log("this is if")
+            localStorage.setItem("completedWorkouts", [])
+        } else {
+            var setStorage = localStorage.getItem("completedWorkouts");
+            completedWorkouts.push(setStorage);
+            console.log("this is else")
+        }
+        const openedExercise = localStorage.getItem("openedExercise");
+        if (openedExercise == "pilates") {
+            const openedWorkoutInfo = {
+                name: "Pilates",
+                date: new Date().toLocaleDateString(),
+                duration: "20 minutes"
+            }
+            completedWorkouts.push(openedWorkoutInfo);
+        } else if (openedExercise == "yoga") {
+            const openedWorkoutInfo = {
+                name: "Yoga",
+                date: new Date().toLocaleDateString(),
+                duration: "15 minutes"
+            }
+            completedWorkouts.push(openedWorkoutInfo);
+        } else if (openedExercise == "kickboxing") {
+            const openedWorkoutInfo = {
+                name: "Kickboxing",
+                date: new Date().toLocaleDateString(),
+                duration: "30 minutes"
+            }
+            completedWorkouts.push(openedWorkoutInfo);
+        }
+        console.log(completedWorkouts)
+        localStorage.setItem("completedWorkouts", JSON.stringify(completedWorkouts))
+    </script> -->
+
+
+<script>
+    // Load existing completed workouts from localStorage
+    const existingCompletedWorkouts = JSON.parse(localStorage.getItem("completedWorkouts")) || [];
+
+    // Define the current completed workout
+    const openedExercise = localStorage.getItem("openedExercise");
+    let openedWorkoutInfo = null;
+
+    if (openedExercise == "pilates") {
+        openedWorkoutInfo = {
+            name: "Pilates",
+            date: new Date().toLocaleDateString(),
+            duration: "20 minutes"
+        }
+    } else if (openedExercise == "yoga") {
+        openedWorkoutInfo = {
+            name: "Yoga",
+            date: new Date().toLocaleDateString(),
+            duration: "15 minutes"
+        }
+    } else if (openedExercise == "kickboxing") {
+        openedWorkoutInfo = {
+            name: "Kickboxing",
+            date: new Date().toLocaleDateString(),
+            duration: "30 minutes"
+        }
+    } else if (openedExercise == "meditation") {
+        openedWorkoutInfo = {
+            name: "Meditation",
+            date: new Date().toLocaleDateString(),
+            duration: "5 minutes"
+        }
+    }
+
+
+    // Add the current completed workout to the existing list
+    if (openedWorkoutInfo) {
+        existingCompletedWorkouts.push(openedWorkoutInfo);
+        localStorage.setItem("completedWorkouts", JSON.stringify(existingCompletedWorkouts));
+    }
+</script>
+
+
+
+</body>
+</html>

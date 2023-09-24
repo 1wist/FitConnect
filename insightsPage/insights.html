@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200&family=Vollkorn&display=swap');
+    </style>
+    <script src="https://kit.fontawesome.com/966c797ca6.js" crossorigin="anonymous"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/vfs_fonts.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="insightsStyle.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200&family=Vollkorn&display=swap');
+    </style>
+    <title>Insights</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            display: flex;
+            flex-direction: row;
+            font-family: 'Vollkorn', serif;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            background-color: transparent;
+            width: 100vw;
+            /*z-index: 99;*/
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo img {
+            text-align: center;
+            color: black;
+            width: 50px;
+            height: 50px;
+            /*height: calc(100vh/11);*/
+        }
+
+        .logo p {
+            /*padding-top: calc(100vh/44);*/
+            font-size: large;
+            font-family: Vollkorn;
+        }
+
+        .logo {
+            display: flex;
+            width: 85vw;
+            align-items: center;
+        }
+
+        .right-icons {
+            display: flex;
+            align-items: center;
+            width: 15vw;
+            justify-content: space-evenly;
+        }
+
+        .notification-icon,
+        .profile-icon {
+            font-size: 1.2rem;
+            color: black;
+            margin: 0 10px;
+        }
+
+        .notification-icon :hover,
+        .profile-icon:hover {
+            cursor: pointer;
+        }
+
+        footer {
+            font-family: 'Inter', sans-serif;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 50px;
+            background-color: rgb(229, 229, 229);
+            color: rgb(0, 0, 0);
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        footer p {
+            font-size: xx-small;
+            margin: 0;
+        }
+
+        /* css link styling for footer and header, jic other pages also use a tag*/
+        footer a:link {
+            text-decoration: none;
+            color: black;
+        }
+
+        footer a:visited {
+            text-decoration: none;
+            color: black;
+        }
+
+        footer a:hover {
+            text-decoration: none;
+            color: grey !important;
+        }
+
+        footer a:active {
+            text-decoration: none;
+            color: black;
+        }
+
+        header a:link {
+            text-decoration: none;
+            color: black;
+        }
+
+        header a:visited {
+            text-decoration: none;
+            color: black;
+        }
+
+        header a:hover {
+            text-decoration: none;
+            color: grey !important;
+        }
+
+        header a:active {
+            text-decoration: none;
+            color: black;
+        }
+
+        .fa-comment-dots {
+            width: 24px;
+            height: 17px;
+        }
+
+        /* hardcode css id in html for current page opened */
+        #opened-nav {
+            color: #f5b512;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+
+        <div class="navbar" style="background-color:white;">
+            <div class="logo">
+                <img src="../nabar/navbar_media/fitconnect_logo.png">
+                <p>FitConnect</p>
+            </div>
+            <div class="right-icons">
+                <a href="../nofitication/notifications.html">
+                    <div class="notification-icon" onclick="myNofi()"><i class="fas fa-bell"></i></div>
+                </a>
+                <div class="profile-icon" onclick="myPfp()"><a href="../profile/profile.html"><i
+                            class="fas fa-user"></i></a></div>
+            </div>
+
+        </div>
+    </header>
+    <div class="all">
+        <div class="section todayStat">
+            <div class="todayStatDiv">
+                <p>12</p>
+                <p class="grey">WORKOUT</p>
+            </div>
+            <div class="todayStatDiv">
+                <p>0</p>
+                <p>KCAL LEFT</p>
+            </div>
+            <div class="todayStatDiv">
+                <p>45</p>
+                <p>MINUTE</p>
+            </div>
+        </div>
+
+        <div class="section column">
+            <div id="caloriesTop">
+                <p>Calories</p>
+                <!-- <p>MORE</p> -->
+                <!-- could remove 'MORE' -->
+            </div>
+            <div id="graphCalArea">
+                <!-- code for stats -->
+                <div class="chart-container">
+                    <canvas id="line-chart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="section column">
+            <div id="exerciseTop">
+                <p>Exercise</p>
+                <div id="chooseExDisplay">
+                    <p>KCAL</p>
+                    <p>TIME</p>
+                </div>
+            </div>
+            <div>
+                <!-- code for exercise stats -->
+                <div class="chart-container">
+                    <canvas id="line-chart2"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="section column">
+            <div id="weightTop">
+                <p>Weight</p>
+                <p>MORE</p>
+            </div>
+            <div>
+                <div class="chart-container">
+                    <canvas id="line-chart3"></canvas>
+                </div>
+                <!-- code for weight stats -->
+            </div>
+            <div class="weightSections" style="margin-top:25px;">
+                <p>Current</p>
+                <p>50kg</p>
+            </div>
+            <div class="weightSections">
+                <p>Target</p>
+                <p>48kg</p>
+            </div>
+            <div class="weightSections">
+                <p>Approx time to target</p>
+                <p>2.3 months / 78 days</p>
+            </div>
+        </div>
+        <div class="section column">
+            <p>Body Mass Index (BMI)</p>
+            <div id="bmiNum">
+                <span class="value2">25</span>
+                <p id="bmiStatus" class="greenBMI">You're Healthy</p>
+            </div>
+            <div id="bmiDisplay">
+                <!-- code for bmi display -->
+                <div class="range">
+                    <input type="range" id="range1" disabled />
+                </div>
+                <div id="progress-bar-container">
+                    <div class="progress-bar-child progress"></div>
+                    <div class="progress-bar-child shrinker timelapse"></div>
+                </div>
+            </div>
+            <div id="bmiGraphDisplay">
+                <!-- code for bmi graph display -->
+                <div class="chart-container">
+                    <canvas id="bmiChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </section>
+    <footer>
+        <a id="opened-nav" href="../home/home.html">
+            <span class="material-symbols-outlined">home</span>
+            <p>HOME</p>
+        </a>
+        <a href="../workout_page/workout.html">
+            <span class="material-symbols-outlined">fitness_center</span>
+            <p>WORKOUTS</p>
+        </a>
+        <a href="../meals/nutrition.html">
+            <span class="material-symbols-outlined">restaurant</span>
+            <p>NUTRITION</p>
+        </a>
+        <a href="../chat_summary/chat_summary.html">
+            <i class="fa-solid fa-comment-dots fa-xl"></i>
+            <p>CHATS</p>
+        </a>
+        <a href="../insightsPage/insights.html">
+            <span class="material-symbols-outlined">bar_chart</span>
+            <p>INSIGHTS</p>
+        </a>
+    </footer>
+
+
+    <script src="insightsScript.js"></script>
+</body>
+
+</html>

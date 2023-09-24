@@ -1,0 +1,51 @@
+body {
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+}
+
+/* Format the bookmarked exercises list similarly to the main exercise list */
+.exercise-list {
+    display: flex;
+    flex-wrap: wrap;
+    /* Wrap the exercises into multiple rows */
+    justify-content: center;
+    /* Horizontally center the items */
+    align-items: center;
+    /* Vertically center the items */
+    gap: 20px;
+    /* Add some spacing between the exercises */
+    margin-top: 20px;
+}
+
+/* Adjust the styles for bookmarked exercises to match the main exercise styles */
+.bookmarked-exercise {
+    cursor: pointer;
+    padding: 0;
+    position: relative;
+    /* Set position to relative */
+    border: 1px solid #ff9900;
+}
+
+
+/* Media query for screens smaller than 800px */
+/* @media (max-width: 800px) {
+    .bookmarked-exercise {
+        width: calc(50% - 20px);
+    }
+} */
+
+/* Media query for screens smaller than 600px */
+/* @media (max-width: 600px) {
+    .bookmarked-exercise {
+        width: calc(100% - 20px);
+    }
+}
+
+.bookmarked-exercise h2 {
+    font-size: 20px;
+}
+
+.bookmarked-exercise p {
+    font-size: 12px;
+} */
