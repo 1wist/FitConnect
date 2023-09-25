@@ -2,87 +2,287 @@
 <html lang="en">
 
 <head>
+    <meta charset="UTF-8">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="../leader_board/leaderboard.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../chat_summary/chat_summary.css">
+    <title>Chat Summary</title>
+    <script src="https://kit.fontawesome.com/966c797ca6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200&family=Vollkorn&display=swap');
+    </style>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            display: flex;
+            flex-direction: row;
+            font-family: 'Vollkorn', serif;
+        }
+
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            background-color: transparent;
+            width: 100vw;
+            /*z-index: 99;*/
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo img {
+            text-align: center;
+            color: black;
+            width: 50px;
+            height: 50px;
+            /*height: calc(100vh/11);*/
+        }
+
+        .logo p {
+            /*padding-top: calc(100vh/44);*/
+            font-size: large;
+            font-family: Vollkorn;
+        }
+
+        .logo {
+            display: flex;
+            width: 85vw;
+            align-items: center;
+        }
+
+        .right-icons {
+            display: flex;
+            align-items: center;
+            width: 15vw;
+            justify-content: space-evenly;
+        }
+
+        .notification-icon,
+        .profile-icon {
+            font-size: 1.2rem;
+            color: black;
+            margin: 0 10px;
+        }
+
+        .notification-icon :hover,
+        .profile-icon:hover {
+            cursor: pointer;
+        }
+
+        footer {
+            font-family: 'Inter', sans-serif;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 75px;
+            background-color: #FFF;
+            color: rgb(0, 0, 0);
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding-top: 20px;
+            padding-top: 10px;
+        }
+
+        footer p {
+            font-size: xx-small;
+            margin: 0;
+        }
+
+        /* css link styling for footer and header, jic other pages also use a tag*/
+        footer a:link {
+            text-decoration: none;
+            color: black;
+        }
+
+        footer a:visited {
+            text-decoration: none;
+            color: black;
+        }
+
+        footer a:hover {
+            text-decoration: none;
+            color: grey !important;
+        }
+
+        footer a:active {
+            text-decoration: none;
+            color: black;
+        }
+
+        header a:link {
+            text-decoration: none;
+            color: black;
+        }
+
+        header a:visited {
+            text-decoration: none;
+            color: black;
+        }
+
+        header a:hover {
+            text-decoration: none;
+            color: grey !important;
+        }
+
+        header a:active {
+            text-decoration: none;
+            color: black;
+        }
+
+        .fa-comment-dots {
+            width: 24px;
+            height: 17px;
+        }
+
+        /* hardcode css id in html for current page opened */
+        #opened-nav {
+            color: #f5b512;
+        }
+    </style>
 </head>
 
 <body>
-    <main>
-        <div id="header">
-            <h1>&nbsp;&nbsp;&nbsp; Weekly Ranking</h1>
-            <button class="share">
-                <i class="ph ph-share-network"></i>
-            </button>
+    <header>
+        <div class="navbar" style="background-color:white;">
+            <div class="logo">
+                <img src="../nabar/navbar_media/fitconnect_logo.png">
+                <p>FitConnect</p>
+            </div>
+            <div class="right-icons">
+                <a href="../notification/notifications.html">
+                    <div class="notification-icon" onclick="myNoti()"><i class="fas fa-bell"></i></div>
+                </a>
+                <div class="profile-icon" onclick="myPfp()"><a href="../profile/profile.html"><i
+                            class="fas fa-user"></i></a></div>
+            </div>
+
         </div>
-        <div id="leaderboard">
-            <div class="ribbon"></div>
-            <table>
-                <tr>
-                    <td class="number">1</td>
-                    <td class="name">Jovy</td>
-                    <td class="points">
-                        258.244 <img class="gold-medal"
-                            src="https://github.com/malunaridev/Challenges-iCodeThis/blob/master/4-leaderboard/assets/gold-medal.png?raw=true"
-                            alt="gold medal" />
-                    </td>
-                </tr>
-                <tr>
-                    <td class="number">2</td>
-                    <td class="name">Timothy</td>
-                    <td class="points">258</td>
-                </tr>
-                <tr>
-                    <td class="number">3</td>
-                    <td class="name">Kim</td>
-                    <td class="points">223</td>
-                </tr>
-                <tr>
-                    <td class="number">4</td>
-                    <td class="name">Jun Song</td>
-                    <td class="points">220</td>
-                </tr>
-                <tr>
-                    <td class="number">5</td>
-                    <td class="name">Ashley</td>
-                    <td class="points">215</td>
-                </tr>
-                <tr>
-                    <td class="number">6</td>
-                    <td class="name">Gabriel</td>
-                    <td class="points">193</td>
-                </tr>
-                <tr>
-                    <td class="number">7</td>
-                    <td class="name">Jia Hao</td>
-                    <td class="points">170</td>
-                </tr>
-                <tr>
-                    <td class="number">8</td>
-                    <td class="name">Wen Bing</td>
-                    <td class="points">143</td>
-                </tr>
-                <tr>
-                    <td class="number">9</td>
-                    <td class="name">Iggy</td>
-                    <td class="points">141</td>
-                </tr>
-                <tr>
-                    <td class="number">10</td>
-                    <td class="name">Sarah</td>
-                    <td class="points">140</td>
-                </tr>
-            </table>
-            <div id="buttons">
-                <button class="exit">Exit</button>
-                <button class="continue">Continue</button>
+
+    </header>
+
+
+    <div style="display: flex; justify-content: center; margin:50px 00px;">
+        <div class="leaderboard_main">
+            <div id="header">
+                <h1>&nbsp;&nbsp;&nbsp; Weekly Ranking</h1>
+                <button class="share">
+                    <i class="ph ph-share-network"></i>
+                </button>
+            </div>
+            <div id="leaderboard">
+                <div class="ribbon"></div>
+                <table>
+                    <tr>
+                        <td class="number">1</td>
+                        <td class="name">Jovy</td>
+                        <td class="points">
+                            272<img class="gold-medal"
+                                src="https://github.com/malunaridev/Challenges-iCodeThis/blob/master/4-leaderboard/assets/gold-medal.png?raw=true"
+                                alt="gold medal" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="number">2</td>
+                        <td class="name">Timothy</td>
+                        <td class="points">258</td>
+                    </tr>
+                    <tr>
+                        <td class="number">3</td>
+                        <td class="name">Kim</td>
+                        <td class="points">223</td>
+                    </tr>
+                    <tr>
+                        <td class="number">4</td>
+                        <td class="name">Jun Song</td>
+                        <td class="points">220</td>
+                    </tr>
+                    <tr>
+                        <td class="number">5</td>
+                        <td class="name">Ashley</td>
+                        <td class="points">215</td>
+                    </tr>
+                    <tr>
+                        <td class="number">6</td>
+                        <td class="name">Gabriel</td>
+                        <td class="points">193</td>
+                    </tr>
+                    <tr>
+                        <td class="number">7</td>
+                        <td class="name">Jia Hao</td>
+                        <td class="points">170</td>
+                    </tr>
+                    <tr>
+                        <td class="number">8</td>
+                        <td class="name">Wen Bing</td>
+                        <td class="points">143</td>
+                    </tr>
+                    <tr>
+                        <td class="number">9</td>
+                        <td class="name">Iggy</td>
+                        <td class="points">141</td>
+                    </tr>
+                    <tr>
+                        <td class="number">10</td>
+                        <td class="name">Sarah</td>
+                        <td class="points">140</td>
+                    </tr>
+                </table>
+
             </div>
         </div>
-    </main>
+    </div>
+
+
+
+    <div class="header">
+        <h1>Chats</h1>
+    </div>
+    <div class="online-friends">
+        <i class="fas fa-circle"></i> Online Friends
+    </div>
+    <div class="chat-summary-container">
+        <div class="chat-list" id="chatList">
+            <!-- Chat items go here -->
+        </div>
+    </div>
+    <footer>
+        <a id="opened-nav" href="../home/home.html">
+            <span class="material-symbols-outlined">home</span>
+            <p>HOME</p>
+        </a>
+        <a href="../workout_page/workout.html">
+            <span class="material-symbols-outlined">fitness_center</span>
+            <p>WORKOUTS</p>
+        </a>
+        <a href="../meals/nutrition.html">
+            <span class="material-symbols-outlined">restaurant</span>
+            <p>NUTRITION</p>
+        </a>
+        <a href="../chat_summary/chat_summary.html">
+            <i class="fa-solid fa-comment-dots fa-xl"></i>
+            <p>CHATS</p>
+        </a>
+        <a href="../insightsPage/insights.html">
+            <span class="material-symbols-outlined">bar_chart</span>
+            <p>INSIGHTS</p>
+        </a>
+    </footer>
+
+    <script src="../chat_summary/chat_sumamry.js"></script>
+    <script src="../profile/profile.js"></script>
+
 </body>
 
 </html>
