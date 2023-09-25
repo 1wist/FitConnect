@@ -98,7 +98,6 @@ function myFunction() {
 function createExerciseElement(exercise) {
     const exerciseDiv = document.createElement('div');
     exerciseDiv.className = 'exercise';
-    // exerciseDiv.style.backgroundImage = `url('images/${exercise.image}')`;
     exerciseDiv.innerHTML = `
     <div>
     <div style = "height: 250px; width: 250px;">
@@ -164,14 +163,14 @@ function updateBookmarkIcon(iconElement, isMarked) {
 
 //javascript code for linking individual
 function testing(thing) {
-    const stuff = (thing.id).toLowerCase();;
+    const stuff = thing.id;
     window.location.href = `${stuff}.html`
 }
 function runThis() {
     const h2Array = document.querySelectorAll("h2");
     h2Array.forEach((thingy) => {
         if (thingy.classList.contains('exercise-name')) {
-            thingy.addEventListener("click", function () {
+            thingy.addEventListener("click", function(){
                 testing(thingy);
             });
         };
