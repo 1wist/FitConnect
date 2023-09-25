@@ -116,7 +116,7 @@ function createExerciseElement(exercise) {
       color: white;
       text-align: center;">
         <h2 class="exercise-name" id="${exercise.name.replace(/\s/g, '')}">${exercise.name}</h2>
-        <p>Duration: ${exercise.duration}</p>
+        <p style="margin-top: 20px;">Duration: ${exercise.duration}</p>
       </div>
     </div>
     <div id="rec-icons">
