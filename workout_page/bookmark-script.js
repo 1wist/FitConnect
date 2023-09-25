@@ -8,7 +8,7 @@ function displayBookmarkedExercises() {
         exerciseElement.className = 'bookmarked-exercise';
         exerciseElement.innerHTML = `
         <div>
-        <div style = "height: 300px; width: 300px;">
+        <div style = "height: 250px; width: 250px;">
         <img src="images/${exercise.image}" style = "width: 100%; height: 100%; object-fit: cover; filter: blur(2px);">
         </div>
           <div style = "position: absolute;
