@@ -163,7 +163,7 @@ function updateBookmarkIcon(iconElement, isMarked) {
 
 //javascript code for linking individual
 function testing(thing) {
-    const stuff = thing.id;
+    const stuff = (thing.id).LowerCase();
     window.location.href = `${stuff}.html`
 }
 function runThis() {
